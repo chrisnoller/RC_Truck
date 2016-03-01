@@ -1,0 +1,41 @@
+<html>
+    <head>
+        <title>Truck Controller</title>
+    </head>
+    <body>
+        <form action="/controller" method="post">
+            <table style="width:100%">
+                <tbody>
+                    <tr>
+                        <td>
+                            <input type="submit" value="Forward" name="buttonPress"
+                            style="height:100px;width:100px;font-weight:bold;font-size:100%">
+                    </tr>
+                    <tr>
+                        </td>
+                        <td>
+                            <input type="submit" value="Left" name="buttonPress"       
+                            style="height:100px;width:100px;font-weight:bold;font-size:100%">
+                        </td>
+                        <td>
+                            <input type="submit" value="Right" name="buttonPress"       
+                            style="height:100px;width:100px;font-weight:bold;font-size:100%">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="submit" value="Reverse" name="buttonPress"       
+                            style="height:100px;width:100px;font-weight:bold;font-size:100%">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="submit" value="Stop" name="buttonPress"       
+                            style="height:100px;width:100px;font-weight:bold;font-size:100%">
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </form>
+    </body>
+</html>

@@ -1,0 +1,47 @@
+input {
+    height:125px;
+    width:125px;
+    font-weight:bold;
+    font-size:100%;
+}
+
+
+.forward{
+	position: absolute;
+	left: 150px;
+}
+
+.forwardleft{
+	position: absolute;
+	left: 0px;
+}
+
+.forwardright{
+	position: absolute;
+	left: 300px;
+}
+
+.reverse{
+	position: absolute;
+	top: 150px;
+	left: 150px;
+}
+
+
+.reverseleft{
+	position: absolute;
+	top: 150px;
+	left:0px;
+}
+
+.reverseright{
+	position: absolute;
+	top: 150px;
+	left: 300px;
+}
+
+.stop{
+	position: absolute;
+	top: 75px;
+	left:450px;	
+}
