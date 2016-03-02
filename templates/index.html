@@ -3,42 +3,54 @@
         <title>Truck Controller</title>
         <link href="/static/buttons.css" rel="stylesheet">
     </head>
-    
+
     <body>
-        
+
         <div align="center">
             <form action="/controller" method="post">
-            
+
                 <div class="forward">
-                    <input  type="submit" value="Forward" name="button">
+                    <input  type="button" onclick="sendCommand(this)" value="Forward" name="button">
                 </div>
-                   
-                <div class="forwardleft">                
-                    <input type="submit" value="ForwardLeft" name="button">
+
+                <div class="forwardleft">
+                    <input type="button" onclick="sendCommand(this)" value="ForwardLeft" name="button">
                 </div>
-                        
-                <div class="forwardright">                
-                    <input type="submit" value="ForwardRight" name="button">
+
+                <div class="forwardright">
+                    <input type="button" onclick="sendCommand(this)" value="ForwardRight" name="button">
                 </div>
-                     
+
                 <div class="reverse">
-                    <input type="submit" value="Reverse" name="button">
+                    <input type="button" onclick="sendCommand(this)" value="Reverse" name="button">
                 </div>
 
                 <div class="reverseleft">
-                    <input type="submit" value="ReverseLeft" name="button">
+                    <input type="button" onclick="sendCommand(this)" value="ReverseLeft" name="button">
                 </div>
 
                 <div class="reverseright">
-                    <input type="submit" value="ReverseRight" name="button">
+                    <input type="button" onclick="sendCommand(this)" value="ReverseRight" name="button">
                 </div>
-                       
+
                 <div class="stop">
-                    <input type="submit" value="Stop" name="button">
+                    <input type="button" onclick="sendCommand(this)" value="Stop" name="button">
                 </div>
-                 
+
             </form>
         </div>
-    
+
     </body>
+    <script>
+    function httpGetAsync(buttonPress)
+    {
+        var xmlHttp = new XMLHttpRequest();
+        xmlHttp.open("GET", "/controller/" + buttonPress, true); // true for asynchronous
+        xmlHttp.send(null);
+    }
+    function sendCommand(element)
+    {
+        httpGetAsync(element.value)
+    }
+    </script>
 </html>

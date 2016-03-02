@@ -14,7 +14,7 @@ turnMotor = motorhat.getMotor(1)
 # set speed of motors
 rearDriveMotor.setSpeed(255)
 frontDriveMotor.setSpeed(200)
-turnMotor.setSpeed(255)  
+turnMotor.setSpeed(255)
 
 # stop motors
 def turnOffMotors():
@@ -30,7 +30,7 @@ def goForward():
     turnMotor.run(Adafruit_MotorHAT.RELEASE)
     rearDriveMotor.run(Adafruit_MotorHAT.FORWARD)
 
-# move backward    
+# move backward
 def goReverse():
     frontDriveMotor.run(Adafruit_MotorHAT.BACKWARD)
     turnMotor.run(Adafruit_MotorHAT.RELEASE)
@@ -67,11 +67,10 @@ def index():
     # display button layout
     return render_template('index.html')
 
-@app.route('/controller', methods = ['POST'])
-def controller():
+@app.route('/controller/<buttonPress>')
+def controller(buttonPress):
     # trigger event depending on the button pressed
-    # and then redirect back to button layout
-    buttonPress = request.form['button']
+    # and then return an ok signal
     if buttonPress == 'Forward':
         goForward()
     elif buttonPress == 'ForwardLeft':
@@ -86,9 +85,13 @@ def controller():
         goReverseRight()
     elif buttonPress == 'Stop':
         turnOffMotors()
-    
-    return redirect('/')
-    
+    else:
+        # Send a signal if command requested does not exist
+        # for debugging
+        return 'Command not found'
+
+    return 'ok'
+
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', debug=True)
