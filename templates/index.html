@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
     <head>
         <title>Truck Controller</title>
@@ -39,18 +40,17 @@
 
             </form>
         </div>
-
+        <script type="text/javascript">
+        function httpGetAsync(buttonPress)
+        {
+            var xmlHttp = new XMLHttpRequest();
+            xmlHttp.open("GET", "/controller/" + buttonPress, true); // true for asynchronous
+            xmlHttp.send(null);
+        }
+        function sendCommand(element)
+        {
+            httpGetAsync(element.value)
+        }
+        </script>
     </body>
-    <script type="text/javascript">
-    function httpGetAsync(buttonPress)
-    {
-        var xmlHttp = new XMLHttpRequest();
-        xmlHttp.open("GET", "/controller/" + buttonPress, true); // true for asynchronous
-        xmlHttp.send(null);
-    }
-    function sendCommand(element)
-    {
-        httpGetAsync(element.value)
-    }
-    </script>
 </html>
